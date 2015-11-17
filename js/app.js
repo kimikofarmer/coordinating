@@ -16,7 +16,7 @@ angular.module('Coordinating', [])
             require:'ngModel',
             link: function(scope, elem, attrs, controller) {
                 controller.$validators.passwordMatch = function() {
-                    return scope.password === scope.confirmPassword;
+                    return scope.signUp.password === scope.signUp.confirmPassword;
                 }
             }
         };
@@ -26,7 +26,8 @@ angular.module('Coordinating', [])
             require:'ngModel',
             link: function(scope, elem, attrs, controller) {
                 controller.$validators.validDate = function(modelValue) {
-                    return Date.parse(modelValue) !== NaN;
+                    var imp = Date.parse(modelValue);
+                    return !isNaN(imp);
                 }
             }
         };
@@ -36,7 +37,7 @@ angular.module('Coordinating', [])
             require:'ngModel',
             link: function(scope, elem, attrs, controller) {
                 controller.$validators.over13 = function(modelValue) {
-                    return (new Date(modelValue).getFullYear()) - (new Date().getFullYear()) >= 13;
+                    return ((new Date().getFullYear() - new Date(modelValue).getFullYear())) >= 13;
                 }
             }
         };
