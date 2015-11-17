@@ -10,4 +10,6 @@ angular.module('Coordinating', [])
             $scope.confirm = true;
         }
 
+        /* nony */
+
     });
