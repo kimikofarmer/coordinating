@@ -53,12 +53,46 @@
                 </div>
 
                 <div class="form-group">
+                    <lable for="birthdate">Birthdate:</lable>
+                    <input type="text" class="form-control" id="birthdate" name="birthdate"
+                           ng-model="signUpForm.birthdate" placeholder="Enter your birthdate MM/DD/YYYY" valid-date over-13 required/>
+                           <!-- pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"
+                    <p class="validation-error"
+                       ng-if="signUpForm.birthdate.$error.pattern">
+                        Birthdate must be in the pattern MM/DD/YYYY</p> -->
+                    <p class="validation-error validDate-error"
+                       ng-if="signUpForm.birthdate.$error.validDate">This is not a valid date.</p>
+                    <p class="validation-error over13-error"
+                       ng-if="signUpForm.birthdate.$error.over13">You are not over 13.</p>
+                    <p class="validation-error required-error"
+                       ng-if="signUpForm.birthdate.$dirty && signUpForm.birthdate.$error.required">Birthdate is required.</p>
+                </div>
+
+                <div class="form-group">
+                    <lable for="password">Password:</lable>
+                    <input type="password" class="form-control" id="password" name="password" ng-model="signUpForm.password" placeholder="Enter your password" required/>
+                    <p class="validation-error required-error"
+                       ng-if="signUpForm.password.$dirty && signUpForm.password.$error.required">Password is required.</p>
+                </div>
+
+                <div class="form-group">
+                    <lable for="confirmPassword">Confirm Password:</lable>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="signUpForm.confirmPassword" placeholder="Reenter your password" password-match required/>
+                    <p class="validation-error passwordMatch-error"
+                       ng-if="signUpForm.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
+
+                    <p class="validation-error required-error"
+                       ng-if="signUpForm.confirmPassword.$dirty && signUpForm.confirmPassword.$error.required">Confirming your password is required.</p>
+                </div>
+
+                <div class="form-group">
                     <button type="submit"
                             class="btn btn-primary"
                             ng-disabled="signUpForm.$invalid">
                         Submit
                     </button>
                 </div>
+
             </form>
         </main>
     </body>
