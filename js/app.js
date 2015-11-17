@@ -4,7 +4,7 @@ angular.module('Coordinating', [])
     .controller('MainCtrl', function($scope) {
 
         $scope.confirm = false;
-        $scope.signUpForm = {};
+        $scope.signUp = {};
 
         $scope.complete = function() {
             $scope.confirm = true;
