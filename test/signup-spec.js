@@ -13,7 +13,7 @@ describe('Form App', function() {
     var requiredMsgs = $('required-error');
 
     var emailValidation = $('.email-invalid-error');
-	var emailRequired = $('.email-required-error');
+    var emailRequired = $('.email-required-error');
 
     beforeEach(function() {
         //reload the page so we start the test fresh
