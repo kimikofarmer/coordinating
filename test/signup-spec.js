@@ -1,12 +1,12 @@
 describe('Form App', function() {
 
-    var birthDateInp = element(by.model('signUpForm.birthdate'));
+    var birthDateInp = element(by.model('signUp.birthdate'));
     var validDateMsg = $('.validDate-error');
 
     var over13Msg = $('.over13-error');
 
-    var passwordInp = element(by.model('signUpForm.password'));
-    var confirmPasswordInp = element(by.model('signUpForm.confirmPassword'));
+    var passwordInp = element(by.model('signUp.password'));
+    var confirmPasswordInp = element(by.model('signUp.confirmPassword'));
     var passwordMatchMsg = $('.passwordMatch-error');
 
     var requiredInputs = $("input:not(#fname)");
