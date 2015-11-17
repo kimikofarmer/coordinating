@@ -34,11 +34,11 @@
 
                 <div class="form-group">
                     <label for="emailInp">Email Address:</label>
-                    <input type="email" class="form-control" id="emailInp" name="emailInp" ng-model="signUpForm.email" placeholder="Enter an email address" required/>
+                    <input type="email" class="form-control" id="emailInp" name="emailInp" ng-model="signUp.email" placeholder="Enter an email address" required/>
                     <p class="validation-error email-invalid-error"
-                       ng-if="signUpForm.email.$error.email">Email address is not valid.</p>
+                       ng-if="signUp.email.$error.email">Email address is not valid.</p>
                     <p class="validation-error email-required-error"
-                       ng-if="signUpForm.emailInp.$dirty && signUpForm.emailInp.$error.required">Email address is required.</p>
+                       ng-if="signUp.emailInp.$dirty && signUp.emailInp.$error.required">Email address is required.</p>
                 </div>
 
                 <div class="form-group">
@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label for="lname">Last name:</label>
                     <input type="text" class="form-control" id="lname" name="lname" ng-model="signUp.lname" placeholder="last name" required/>
-                    <p class="validation-error" ng-if="signUpForm.lnameInp.$error.required">Last name is required</p>
+                    <p class="validation-error" ng-if="signUp.lnameInp.$error.required">Last name is required</p>
                 </div>
 
                 <div class="form-group">
@@ -65,30 +65,30 @@
                     <p class="validation-error over13-error"
                        ng-if="signUp.birthdate.$error.over13">You are not over 13.</p>
                     <p class="validation-error required-error"
-                       ng-if="signUp.birthdate.$dirty && signUpForm.birthdate.$error.required">Birthdate is required.</p>
+                       ng-if="signUp.birthdate.$dirty && signUp.birthdate.$error.required">Birthdate is required.</p>
                 </div>
 
                 <div class="form-group">
                     <lable for="password">Password:</lable>
                     <input type="password" class="form-control" id="password" name="password" ng-model="signUp.password" placeholder="Enter your password" required/>
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.password.$dirty && signUpForm.password.$error.required">Password is required.</p>
+                       ng-if="signUp.password.$dirty && signUp.password.$error.required">Password is required.</p>
                 </div>
 
                 <div class="form-group">
                     <lable for="confirmPassword">Confirm Password:</lable>
                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="signUp.confirmPassword" placeholder="Reenter your password" password-match required/>
                     <p class="validation-error passwordMatch-error"
-                       ng-if="signUpForm.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
+                       ng-if="signUp.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
 
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.confirmPassword.$dirty && signUpForm.confirmPassword.$error.required">Confirming your password is required.</p>
+                       ng-if="signUp.confirmPassword.$dirty && signUp.confirmPassword.$error.required">Confirming your password is required.</p>
                 </div>
 
                 <div class="form-group">
                     <button type="submit"
                             class="btn btn-primary"
-                            ng-disabled="signUpForm.$invalid">
+                            ng-disabled="signUp.$invalid">
                         Submit
                     </button>
                 </div>
