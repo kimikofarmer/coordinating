@@ -2,3 +2,7 @@ body {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 18px;
 }
+
+.validation-error {
+    color: #DD0000;
+}
