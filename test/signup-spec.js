@@ -17,7 +17,7 @@ describe('Form App', function() {
 
     beforeEach(function() {
         //reload the page so we start the test fresh
-        browser.get('http://localhost:8080/');
+        browser.get('http://localhost:8000/');
     });
 
     it('must show invalid date error', function() {
