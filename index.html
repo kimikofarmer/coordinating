@@ -53,14 +53,14 @@
                     <p class="validation-error over13-error"
                        ng-if="signUpForm.birthdate.$error.over13">You are not over 13.</p>
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.birthdate.$error.required">Birthdate is required.</p>
+                       ng-if="signUpForm.birthdate.$dirty && signUpForm.birthdate.$error.required">Birthdate is required.</p>
                 </div>
 
                 <div class="form-group">
                     <lable for="password">Password:</lable>
                     <input type="password" class="form-control" id="password" name="password" ng-model="signUpForm.password" placeholder="Enter your password" required/>
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.password.$error.required">Password is required.</p>
+                       ng-if="signUpForm.password.$dirty && signUpForm.password.$error.required">Password is required.</p>
                 </div>
 
                 <div class="form-group">
@@ -70,7 +70,7 @@
                        ng-if="signUpForm.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
 
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.confirmPassword.$error.required">Confirming your password is required.</p>
+                       ng-if="signUpForm.confirmPassword.$dirty && signUpForm.confirmPassword.$error.required">Confirming your password is required.</p>
                 </div>
 
                 <div class="form-group">
