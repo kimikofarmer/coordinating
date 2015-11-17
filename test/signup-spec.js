@@ -85,7 +85,7 @@ describe('Form App', function() {
 	    expect(emailRequired.isPresent()).toEqual(true);
 
 	    emailInp.sendKeys('notanemail');
-	    expect(emailInvalid.isPresent()).toEqual(true);
+	    expect(emailValidation.isPresent()).toEqual(true);
 	    emailInp.clear();
 	    expect(emailRequired.isPresent()).toEqual(true);
 	});
