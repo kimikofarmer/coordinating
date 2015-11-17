@@ -61,9 +61,9 @@
                        ng-if="signUpForm.birthdate.$error.pattern">
                         Birthdate must be in the pattern MM/DD/YYYY</p> -->
                     <p class="validation-error validDate-error"
-                       ng-if="signUp.birthdate.$error.validDate">This is not a valid date.</p>
+                       ng-if="signUp.birthdate.$dirty && signUp.birthdate.$error.validDate">This is not a valid date.</p>
                     <p class="validation-error over13-error"
-                       ng-if="signUp.birthdate.$error.over13">You are not over 13.</p>
+                       ng-if="signUp.birthdate.$dirty && signUp.birthdate.$error.over13">You are not over 13.</p>
                     <p class="validation-error required-error"
                        ng-if="signUp.birthdate.$dirty && signUp.birthdate.$error.required">Birthdate is required.</p>
                 </div>
@@ -79,7 +79,7 @@
                     <lable for="confirmPassword">Confirm Password:</lable>
                     <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" ng-model="signUp.confirmPassword" placeholder="Reenter your password" password-match required/>
                     <p class="validation-error passwordMatch-error"
-                       ng-if="signUp.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
+                       ng-if="signUp.confirmPassword.$dirty && signUp.confirmPassword.$error.passwordMatch">The passwords are not the same. Please check again.</p>
 
                     <p class="validation-error required-error"
                        ng-if="signUp.confirmPassword.$dirty && signUp.confirmPassword.$error.required">Confirming your password is required.</p>
