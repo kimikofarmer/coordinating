@@ -12,6 +12,8 @@ describe('Form App', function() {
     var requiredInputs = $("input:not(#fname)");
     var requiredMsgs = $('required-error');
 
+    var emailInp = element(by.model('signUp.email'));
+
     var emailValidation = $('.email-invalid-error');
     var emailRequired = $('.email-required-error');
 
