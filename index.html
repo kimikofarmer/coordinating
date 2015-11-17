@@ -61,11 +61,11 @@
                        ng-if="signUpForm.birthdate.$error.pattern">
                         Birthdate must be in the pattern MM/DD/YYYY</p> -->
                     <p class="validation-error validDate-error"
-                       ng-if="signUpForm.birthdate.$error.validDate">This is not a valid date.</p>
+                       ng-if="signUp.birthdate.$error.validDate">This is not a valid date.</p>
                     <p class="validation-error over13-error"
-                       ng-if="signUpForm.birthdate.$error.over13">You are not over 13.</p>
+                       ng-if="signUp.birthdate.$error.over13">You are not over 13.</p>
                     <p class="validation-error required-error"
-                       ng-if="signUpForm.birthdate.$dirty && signUpForm.birthdate.$error.required">Birthdate is required.</p>
+                       ng-if="signUp.birthdate.$dirty && signUpForm.birthdate.$error.required">Birthdate is required.</p>
                 </div>
 
                 <div class="form-group">
