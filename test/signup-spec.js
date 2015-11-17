@@ -10,12 +10,16 @@ describe('Form App', function() {
     var passwordMatchMsg = $('.passwordMatch-error');
 
     var requiredInputs = $("input:not(#fname)");
-    var requiredMsgs = $('required-error');
+    var requiredMsgs = $('.required-error');
 
     var emailInp = element(by.model('signUp.email'));
 
     var emailValidation = $('.email-invalid-error');
     var emailRequired = $('.email-required-error');
+
+    var lnameRequired = $('.lname-required-error');
+    var lnameInp = element(by.model('signUp.lname'));
+
 
     beforeEach(function() {
         //reload the page so we start the test fresh
@@ -89,4 +93,13 @@ describe('Form App', function() {
 	    emailInp.clear();
 	    expect(emailRequired.isPresent()).toEqual(true);
 	});
+
+    it('must enter last nanme', function() {
+        expect(lnameRequired.isPresent()).toEqual(false);
+        lnameInp.sendKeys('blah');
+        lnameInp.clear();
+        expect(lnameInp.isPresent()).toEqual(true);
+        lnameInp.sendKeys('blach');
+        expect(lnameInp.isPresent()).toEqual(false);
+    });
 });
