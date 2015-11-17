@@ -20,6 +20,8 @@ describe('Form App', function() {
     var lnameRequired = $('.lname-required-error');
     var lnameInp = element(by.model('signUp.lname'));
 
+    var alert = $('.alert');
+    var done = $('.formDone');
 
     beforeEach(function() {
         //reload the page so we start the test fresh
@@ -37,12 +39,10 @@ describe('Form App', function() {
 
     it('must be over 13', function() {
         expect(over13Msg.isPresent()).toEqual(false);
-        var today = new Date();
-        birthDateInp.sendKeys(today.toLocaleDateString('en-US'));
+        birthDateInp.sendKeys('1/1/2010');
         expect(validDateMsg.isPresent()).toEqual(true);
         birthDateInp.clear();
-        today.setFullYear(today.getFullYear() - 13);
-        birthDateInp.sendKeys(today.toLocaleDateString('en-US'));
+        birthDateInp.sendKeys('1/1/1950');
         expect(validDateMsg.isPresent()).toEqual(false);
     });
 
@@ -58,7 +58,7 @@ describe('Form App', function() {
         }
     });*/
 
-    it('must be the same Passoword', function() {
+    it('must be the same Password', function() {
         expect(passwordMatchMsg.isPresent()).toEqual(false);
         passwordInp.sendKeys('password');
         confirmPasswordInp.sendKeys('hello');
@@ -113,15 +113,13 @@ describe('Form App', function() {
     });
 
     it('should show success message', function () {
-        expect(alertMsg.isPresent()).toEqual(false);
+        expect(alert.isPresent()).toEqual(false);
         lnameInp.sendKeys('abc');
         emailInp.sendKeys('example@email.com');
-        bDateImp.sendKeys('11/4/2000');
+        birthDateInp.sendKeys('11/4/2000');
         passwordInp.sendKeys('password');
-        cpasswordInp.sendKeys('password');
-        clickSubmit.click();
-        expect(alertMsg.isPresent()).toEqual(true);
-        closeTab.click();
-        expect(alertMsg.isPresent()).toEqual(false);
+        confirmPasswordInp.sendKeys('password');
+        done.click();
+        expect(alert.isPresent()).toEqual(true);
     });
 });
