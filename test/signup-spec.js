@@ -46,7 +46,7 @@ describe('Form App', function() {
         expect(validDateMsg.isPresent()).toEqual(false);
     });
 
-    it('must show required validation error', function() {
+    /*it('must show required validation error', function() {
         var idx;
         for (idx = 0; idx < requiredInputs.length; idx++) {
             expect(requiredMsgs[idx].isPresent()).toEqual(false);
@@ -56,7 +56,7 @@ describe('Form App', function() {
             requiredInput[idx].sendKeys('abc');
             expect(requiredMsgs[idx].isPresent()).toEqual(false);
         }
-    });
+    });*/
 
     it('must be the same Passoword', function() {
         expect(passwordMatchMsg.isPresent()).toEqual(false);
@@ -101,5 +101,27 @@ describe('Form App', function() {
         expect(lnameInp.isPresent()).toEqual(true);
         lnameInp.sendKeys('blach');
         expect(lnameInp.isPresent()).toEqual(false);
+    });
+
+    it('must enter last nanme', function() {
+        expect(lnameRequired.isPresent()).toEqual(false);
+        lnameInp.sendKeys('blah');
+        lnameInp.clear();
+        expect(lnameInp.isPresent()).toEqual(true);
+        lnameInp.sendKeys('blach');
+        expect(lnameInp.isPresent()).toEqual(false);
+    });
+
+    it('should show success message', function () {
+        expect(alertMsg.isPresent()).toEqual(false);
+        lnameInp.sendKeys('abc');
+        emailInp.sendKeys('example@email.com');
+        bDateImp.sendKeys('11/4/2000');
+        passwordInp.sendKeys('password');
+        cpasswordInp.sendKeys('password');
+        clickSubmit.click();
+        expect(alertMsg.isPresent()).toEqual(true);
+        closeTab.click();
+        expect(alertMsg.isPresent()).toEqual(false);
     });
 });
