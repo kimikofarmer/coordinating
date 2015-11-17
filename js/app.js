@@ -8,8 +8,6 @@ angular.module('Coordinating', [])
 
         $scope.complete = function() {
             $scope.confirm = true;
-        }
-
-        /* nony */
+        };
 
     });
