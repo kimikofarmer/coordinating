@@ -22,21 +22,34 @@
         <script src="js/app.js"></script>
 
     </head>
-    <body ng-app="">
-        <main class="container" ng-controller="">
+    <body ng-app="Coordinating">
+        <main class="container" ng-controller="MainCtrl">
             <h1>Sign Up</h1>
             <h3>Our service is fun and awesome, but you must be 13 years old to join</h3>
-            <hr>
+            <br>
 
-            <form name="signUpForm" ng-submit="" novalidate>
+            <p class="alert alert-success" ng-show="confirm">Sign up complete!</p>
+
+            <form name="signUpForm" ng-submit="complete()" novalidate>
 
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="email" class="form-control" id="email" name="email" ng-model="signUpForm.email" placeholder="Enter an email address" required/>
+                    <input type="email" class="form-control" id="email" name="email" ng-model="signUp.email" placeholder="Enter an email address" required/>
                     <p class="validation-error"
                        ng-if="signUpForm.email.$error.email">Email address is not valid.</p>
                     <p class="validation-error"
                        ng-if="signUpForm.email.$dirty && signUpForm.email.$error.required">Email address is required.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="fname">First name:</label>
+                    <input type="text" class="form-control" id="fname" name="fname" ng-model="signUp.fname" placeholder="first name"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last name:</label>
+                    <input type="text" class="form-control" id="lname" name="lname" ng-model="signUp.lname" placeholder="last name" required/>
+                    <p class="validation-error" ng-if="signUpForm.lnameInp.$error.required">Last name is required</p>
                 </div>
 
                 <div class="form-group">
