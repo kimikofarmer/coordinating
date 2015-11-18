@@ -15,8 +15,8 @@ angular.module('Coordinating', [])
         return {
             require:'ngModel',
             link: function(scope, elem, attrs, controller) {
-                controller.$validators.passwordMatch = function() {
-                    return scope.signUp.password === scope.signUp.confirmPassword;
+                controller.$validators.passwordMatch = function(modelValue) {
+                    return scope.signUp.password === modelValue;
                 }
             }
         };

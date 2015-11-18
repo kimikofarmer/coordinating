@@ -46,7 +46,7 @@ describe('Form App', function() {
         expect(over13Msg.isPresent()).toEqual(false);
     });
 
-    /*it('must show required validation error', function() {
+    it('must show required validation error', function() {
         var idx;
         for (idx = 0; idx < requiredInputs.length; idx++) {
             expect(requiredMsgs[idx].isPresent()).toEqual(false);
@@ -56,7 +56,7 @@ describe('Form App', function() {
             requiredInput[idx].sendKeys('abc');
             expect(requiredMsgs[idx].isPresent()).toEqual(false);
         }
-    });*/
+    });
 
     it('must be the same Password', function() {
         expect(passwordMatchMsg.isPresent()).toEqual(false);
