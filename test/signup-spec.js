@@ -20,7 +20,7 @@ describe('Form App', function() {
     var lnameRequired = $('.lname-required-error');
     var lnameInp = element(by.model('signUp.lname'));
 
-    var alert = $('.alert');
+    var successAlert = $('.alert-done');
     var done = $('.formDone');
 
     beforeEach(function() {
@@ -39,11 +39,11 @@ describe('Form App', function() {
 
     it('must be over 13', function() {
         expect(over13Msg.isPresent()).toEqual(false);
-        birthDateInp.sendKeys('1/1/2010');
-        expect(validDateMsg.isPresent()).toEqual(true);
+        birthDateInp.sendKeys('01/01/2010');
+        expect(over13Msg.isPresent()).toEqual(true);
         birthDateInp.clear();
-        birthDateInp.sendKeys('1/1/1950');
-        expect(validDateMsg.isPresent()).toEqual(false);
+        birthDateInp.sendKeys('01/01/1950');
+        expect(over13Msg.isPresent()).toEqual(false);
     });
 
     /*it('must show required validation error', function() {
@@ -79,7 +79,7 @@ describe('Form App', function() {
 	it('must show email type validation error', function() {
 	    expect(emailValidation.isPresent()).toEqual(false);
 	    emailInp.sendKeys('notanemail');
-	    expect(emailInvalid.isPresent()).toEqual(true);
+	    expect(emailValidation.isPresent()).toEqual(true);
 	});
 
 	it('must show required validation error', function() {
@@ -98,28 +98,19 @@ describe('Form App', function() {
         expect(lnameRequired.isPresent()).toEqual(false);
         lnameInp.sendKeys('blah');
         lnameInp.clear();
-        expect(lnameInp.isPresent()).toEqual(true);
+        expect(lnameRequired.isPresent()).toEqual(true);
         lnameInp.sendKeys('blach');
-        expect(lnameInp.isPresent()).toEqual(false);
-    });
-
-    it('must enter last nanme', function() {
         expect(lnameRequired.isPresent()).toEqual(false);
-        lnameInp.sendKeys('blah');
-        lnameInp.clear();
-        expect(lnameInp.isPresent()).toEqual(true);
-        lnameInp.sendKeys('blach');
-        expect(lnameInp.isPresent()).toEqual(false);
     });
 
     it('should show success message', function () {
-        expect(alert.isPresent()).toEqual(false);
+        expect(successAlert.isPresent()).toEqual(false);
         lnameInp.sendKeys('abc');
         emailInp.sendKeys('example@email.com');
         birthDateInp.sendKeys('11/4/2000');
         passwordInp.sendKeys('password');
         confirmPasswordInp.sendKeys('password');
         done.click();
-        expect(alert.isPresent()).toEqual(true);
+        expect(successAlert.isPresent()).toEqual(true);
     });
 });

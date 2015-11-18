@@ -37,7 +37,7 @@ angular.module('Coordinating', [])
             require:'ngModel',
             link: function(scope, elem, attrs, controller) {
                 controller.$validators.over13 = function(modelValue) {
-                    return ((new Date().getFullYear() - new Date(modelValue).getFullYear())) >= 13;
+                    return (new Date().getFullYear() - new Date(modelValue).getFullYear()) >= 13;
                 }
             }
         };
